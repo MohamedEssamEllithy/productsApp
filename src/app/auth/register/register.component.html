@@ -1,0 +1,145 @@
+<div class="container m-5 border border-info border-1 p-4 w-50 ">
+  <form [formGroup]="userForm" (ngSubmit)="handleSubmitForm()" class="w-100 ">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Enter Your Name"
+        formControlName="name"
+      />
+      <div
+      id="nameHelp"
+      class="form-text text-danger"
+      *ngIf="
+        userForm.controls['name'].touched && userForm.controls['name'].invalid
+      "
+    >
+      <span *ngIf="userForm.controls['name'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="userForm.controls['name'].errors?.['minlength']"
+        >Min.length is 3 characters</span
+      >
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Email address</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+        formControlName="email"
+      />
+      <div
+      id="emailHelp"
+      class="form-text text-danger"
+      *ngIf="
+        userForm.controls['email'].touched && userForm.controls['email'].invalid
+      "
+    >
+      <span *ngIf="userForm.controls['email'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="userForm.controls['email'].errors?.['email']"
+        > this is Not Email Format</span
+      >
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >User Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="User Name"
+        formControlName="username"
+      />
+       <div
+      id="usernameHelp"
+      class="form-text text-danger"
+      *ngIf="
+        userForm.controls['username'].touched && userForm.controls['username'].invalid
+      "
+    >
+      <span *ngIf="userForm.controls['username'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="userForm.controls['username'].errors?.['pattern']"
+        > Not allowed space character</span
+      >
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >password</label
+      >
+      <input
+        type="password"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Enter your password"
+        formControlName="password"
+      />
+      <div
+      id="usernameHelp"
+      class="form-text text-danger"
+      *ngIf="
+        userForm.controls['password'].touched && userForm.controls['password'].invalid
+      "
+    >
+      <span *ngIf="userForm.controls['password'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="userForm.controls['password'].errors?.['minlength']"
+        > Your password must be 8-20 characters long.</span
+      >
+      <span *ngIf="userForm.controls['password'].errors?.['pattern']"
+        > contains at least one lowercase , one uppercase , at least one digit and special character.</span
+      >
+    </div>
+     
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >confirm password</label
+      >
+      <input
+        type="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+        formControlName="repassword"
+      />
+      <div
+      id="usernameHelp"
+      class="form-text text-danger"
+      *ngIf="
+        userForm.controls['repassword'].touched && userForm.controls['repassword'].invalid
+      "
+    >
+      <span *ngIf="userForm.controls['repassword'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="userForm.controls['repassword'].errors?.['minlength']"
+        > Your password must be 8-20 characters long.</span
+      >
+      <span *ngIf="userForm.controls['repassword'].errors?.['pattern']"
+        > contains at least one lowercase , one uppercase , at least one digit and special character.</span
+      >
+      <!-- <div *ngIf="userForm.get('repassword')?.hasError('passwordMismatch')">
+  Passwords do not match.
+</div> -->
+    </div>
+    </div>
+    <button class="btn btn-success" [disabled]="userForm.invalid">Register</button>
+  </form>
+</div>

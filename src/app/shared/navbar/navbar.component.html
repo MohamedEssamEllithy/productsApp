@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-light mb-5">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      routerLink="home"
+      routerLinkActive="text-danger"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Products
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link active m-3"
+            aria-current="page"
+            routerLinkActive="text-danger"
+            routerLink="register"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link m-3"
+            routerLinkActive="text-danger"
+            routerLink="login"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            routerLinkActive="text-danger"
+            routerLink="addcart"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="fas fa-shopping-cart fa-2x  m-3 position-relative">
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger counter"
+              >
+                {{counter}}
+               
+              </span>
+            </i></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

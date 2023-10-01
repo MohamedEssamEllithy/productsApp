@@ -1,0 +1,47 @@
+<div class="container m-5 border border-info border-1 p-4 w-50 ">
+
+<hr />
+<form #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm)">
+  <div class="mb-3">
+    <label for="emailInput" class="form-label">Enter Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="emailInput"
+      aria-describedby="nameHelp"
+      name="email"
+      ngModel
+      #email="ngModel"
+      required
+      email
+      minlength="3"
+      
+    />
+    <div id="nameHelp" class="form-text text-danger" *ngIf="email.touched && email.invalid">
+        <span *ngIf="email.errors?.['required']">This field is required</span>
+        <span *ngIf="email.errors?.['email']"> Invalid email format</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Your Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="priceHelp"
+      name="password"
+      #password="ngModel"
+      ngModel
+      required
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[^a-zA-Zd]).+$"
+    />
+    <div id="nameHelp" class="form-text text-danger" *ngIf="password.touched && password.invalid">
+        <span *ngIf="password.errors?.['required']">This field is required</span>
+        <span *ngIf="password.errors?.['pattern']">contains at least one lowercase , one uppercase , at least one digit and special character.</span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+</form>
+</div>
+
+

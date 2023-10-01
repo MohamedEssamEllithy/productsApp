@@ -1,0 +1,48 @@
+<div class="card">
+  <img
+    [src]="productdetail.thumbnail"
+    class="card-img-top img-size position-relative"
+    alt="..."
+  />
+  <div
+    *ngIf="productdetail.stock >= 0; else outstock"
+    class="position-absolute top-0 end-0 p-2"
+  >
+    <button class="btn btn-success">In Stock</button>
+  </div>
+  <ng-template #outstock>
+    <div class="position-absolute top-0 end-0 p-2">
+      <button class="btn btn-danger">Out Stock</button>
+    </div>
+  </ng-template>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <h5 class="card-title">{{ productdetail.title }}</h5>
+      <span>{{
+        productdetail.price | currency : "EGP" : "symbol" : "1.2-2"
+      }}</span>
+    </div>
+    <p class="card-text">{{ productdetail.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ productdetail.rating }}</li>
+    
+  </ul>
+  <div class="d-flex">
+  
+    <button
+      class="btn btn-outline-primary m-5"
+      (click)="redirectToProduct(productdetail.id)"
+    >
+      Details
+    </button>
+  
+    <button
+      class="btn btn-primary m-5 "
+     (click)="addTocart()"
+    >
+      add To cart
+    </button>
+  </div>
+  
+
